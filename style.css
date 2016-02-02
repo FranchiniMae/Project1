@@ -9,11 +9,25 @@ h1 {
 #left {
 	width: 300px;
 	height: 700px;
-	border: 1px solid;
+	border: none;
+	border-radius: 15px;
 	border-color: white;
 	background-color: #CCBAD4;
 	margin: 50px 50px 100px 50px;
 	position: relative;
+	float: left
+}
+
+#right {
+	width: 500px;
+	height: 500px;
+	border: none;
+	border-radius: 15px;
+	background-color: #F5F5F5;
+	position: absolute;
+	margin-left: 400px;
+	margin-top: 100px;
+	float: right;
 }
 
 #timer {
