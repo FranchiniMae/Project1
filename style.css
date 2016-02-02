@@ -1,0 +1,49 @@
+body {
+	background: url("background.png");
+}
+
+h1 {
+	color: #FFF;
+}
+
+#left {
+	width: 300px;
+	height: 700px;
+	border: 1px solid;
+	border-color: white;
+	background-color: #CCBAD4;
+	margin: 50px 50px 100px 50px;
+	position: relative;
+}
+
+#timer {
+	border: 1px solid;
+	border-color: #FFF;
+	width: 250px;
+	height: 150px;
+	position: absolute;
+	margin: 30px 20px 30px 25px;
+}
+
+#score {
+	border:1px solid;
+	border-color: #FFF;
+	width: 250px;
+	height: 150px;
+	position: absolute;
+	margin: 210px 20px 30px 25px;
+}
+
+#play {
+	border: none;
+	background-color: #98B3C3;
+	position: absolute;
+	margin: 390px 125px 30px 125px;
+}
+
+#restart {
+	border: none;
+	background-color: #98B3C3;
+	position: absolute;
+	margin: 445px 120px 30px 120px;
+}
