@@ -1,48 +1,38 @@
 console.log("linked.");
 
-//setBoard by having a canvas pop up
-//grab player element and pin at random spot on canvas
-//grab target element and pin at random spot on canvas
-//create a timer to count down from 45 seconds
-//add keyboard event listener to character
 
 $(document).ready(function () {
 	console.log("ready!");
-	
-	$('#player').click(function(){
-    $('div.selected').removeClass('selected');
-    $(this).addClass('selected');
+	//eventlistener on play click, do functions
+	// setTimer();
+	// setBoard();
+	playButton();
 
-	});}).keyup(function(e){
-        var div = $('div.selected');
-        // console.log(div);
-        // console.log(e.which);            
-        switch (e.which) {
-    case 37:
-        $(div).stop().animate({
-            left: '-=75'
-        }); //left arrow key
-        break;
-    case 38:
-        $(div).stop().animate({
-            top: '-=75'
-        }); //up arrow key
-        break;
-    case 39:
-        $(div).stop().animate({
-            left: '+=75'
-        }); //right arrow key
-        break;
-    case 40:
-        $(div).stop().animate({
-            top: '+=75'
-        }); //bottom arrow key
-        break;
-//start timer when you start game
-}
+
+	//selecting elements use this for div elements
+
 });
 
-//Navigate
+//SET BOARD FUNCTION
+//create board array to iterate through 3
+//add class to element to grab it later on
+//append it to the row
+function setBoard() {
+	for (var i=1; i <= 10; i++) {
+		for (var j=1; j <= 10; j++) {
+		$('#right').append('<div class="cell r'+ i + ' c' + j+'""></div>');
+		// $("<div/>").addClass('r').appendTo('.row2');
+		}
+	}
+}
+
+//SET PLAY BUTTON FUNCTION
+//grab play button and bind it to add event listener (click)
+function playButton () {	
+	$('#play').click(setBoard);
+}
+//when clicked initiate set board function
+
 
 //set Timer
 function setTimer() {
@@ -57,18 +47,3 @@ timeoutfn = function(){
 setTimeout(timeoutfn, 1000);
 }
 
-
-
-
-// // Monster image
-// var monsterReady = false;
-// var monsterImage = new Image();
-// monsterImage.onload = function () {
-// 	monsterReady = true;
-// };
-// monsterImage.src = "images/monster.png";
-// }
-
-// function navigate() {
-// 	if 
-// }
