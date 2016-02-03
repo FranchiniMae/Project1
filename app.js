@@ -2,14 +2,10 @@ console.log("linked.");
 
 
 $(document).ready(function () {
-	console.log("ready!");
 	//eventlistener on play click, do functions
-	// setTimer();
-	// setBoard();
 	playButton();
-
-
-	//selecting elements use this for div elements
+	$('#restart').click(setBoard);
+	//selecting elements use "this" for div elements
 
 });
 
@@ -18,6 +14,7 @@ $(document).ready(function () {
 //add class to element to grab it later on
 //append it to the row
 function setBoard() {
+	setTimer();
 	for (var i=1; i <= 10; i++) {
 		for (var j=1; j <= 10; j++) {
 		$('#right').append('<div class="cell r'+ i + ' c' + j+'""></div>');
@@ -34,16 +31,36 @@ function playButton () {
 //when clicked initiate set board function
 
 
-//set Timer
+//SET TIMER
 function setTimer() {
 var count = document.getElementById('countdown');
-timeoutfn = function(){
+timeoutclock = function(){
        count.innerHTML = parseInt(count.innerHTML) - 1;
-       timer = setTimeout(timeoutfn, 1000);
+       timer = setTimeout(timeoutclock, 1000);
        if (count.innerHTML === "0") {
        	clearTimeout(timer);
      }
 };
-setTimeout(timeoutfn, 1000);
+setTimeout(timeoutclock, 1000);
 }
+
+//SELECTOR FUNCTION
+//Player will be the selector hover overlay
+//when fish is selected, score increases
+
+//HOW TO SELECT
+//grab element & use selector css 
+// function getThrough() {
+// 	var position = { x: 0, y:0};
+// 	var iceLand = [];
+
+// 	$('.board').each(function () {
+// 		iceLand.push([]);
+// 		$('.#ight').
+// 	});
+
+
+// }
+
+//SET FISH ON BOARD
 
