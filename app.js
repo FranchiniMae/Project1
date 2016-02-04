@@ -1,13 +1,28 @@
 console.log("linked.");
 
+
 $(document).ready(function () {
 	//eventlistener on play click, do functions
 	playButton();
 	$('#restart').click(setBoard);
-
 	//selecting elements use "this" for div elements
 
 });
+
+
+// $(document).keydown(function (e) {
+// 	if (e.keyCode > 36 && e.keyCode < 41)
+// 	console.log(e.keyCode);
+// });
+
+// $(document).keydown(function (e) {
+// 	var player = $("#player");
+// 	if (e.keyCode === 37) {
+// 		player.animate( {
+// 			"left": "-=50px"}, "slow");
+// 		}
+// });
+
 
 //SET BOARD FUNCTION
 //create board array to iterate through 3
@@ -21,8 +36,8 @@ function setBoard() {
 		// $("<div/>").addClass('r').appendTo('.row2');
 		}
 	}
+	$('.r5.c6').append("<img src='penguin.png'>");
 	var gameBoard = $('#right').find('.cell');
-	// $('.r6.c5').append('<div id="penguin"><img src="penguin.png"></div>');
 	setFish(gameBoard);
 }
 
@@ -56,19 +71,31 @@ function randomCell() {
 function setFish(gameBoard) {
 	// var gameBoard = $('#right').find(".cell");
 	var randomBox = gameBoard[randomCell()];
-	randomBox.innerHTML = "hello";
+	randomBox.innerHTML = "<img width='35' height='35' src ='fish.png'>";
 }
 
+//EATFISH FUNCTION
+function eatFish() {
+	var randomBox = gameBoard[randomCell()];
+	//need gameboard
+	var gameBoard = $('#right').find('.cell');
+	//need penguin
+	var penguin = $('.r5.c6');
+	//need penguin start & penguin end
+	var pstart  = gameBoard[45];
+	//need to store penguin in temporary variable
+	var pengHome = pstart;
+	//erase penguin start
+	pstart.innerHTML = "";
+	//need append temporary variable to penguin end 
+	$('#player').append(randomBox);
+}
 
-//SELECTING RANDOM NUMBER FOR ROW AND COLUMN
-// var r = Math.round(Math.random() * 10);
-// var c = Math.round(Math.random() * 10);
-//input row and column into position
-// addClass to random cell ("cell r'+ r + ' c' + c+'")
-//$(" '.r' + r + ' .c' + c ").addClass('penguin')
-// var newBox = $('.r' + r + '.c' + c);
-//insert newBox into jquery selector so that it will grab that div and add the class 'fish'
+//need to get the location of the penguin
+//penguin[p] to penguin[p - 3]
 
+
+//this is for selector function
 //the penguin is at a random place
 //if div has classof 'fish', reset
 
