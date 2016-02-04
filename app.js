@@ -1,10 +1,10 @@
 console.log("linked.");
 
-
 $(document).ready(function () {
 	//eventlistener on play click, do functions
 	playButton();
 	$('#restart').click(setBoard);
+
 	//selecting elements use "this" for div elements
 
 });
@@ -21,6 +21,9 @@ function setBoard() {
 		// $("<div/>").addClass('r').appendTo('.row2');
 		}
 	}
+	var gameBoard = $('#right').find('.cell');
+	// $('.r6.c5').append('<div id="penguin"><img src="penguin.png"></div>');
+	setFish(gameBoard);
 }
 
 //SET PLAY BUTTON FUNCTION
@@ -44,23 +47,34 @@ timeoutclock = function(){
 setTimeout(timeoutclock, 1000);
 }
 
-//SELECTOR FUNCTION
-//Player will be the selector hover overlay
-//when fish is selected, score increases
-
-//HOW TO SELECT
-//grab element & use selector css 
-// function getThrough() {
-// 	var position = { x: 0, y:0};
-// 	var iceLand = [];
-
-// 	$('.board').each(function () {
-// 		iceLand.push([]);
-// 		$('.#ight').
-// 	});
-
-
-// }
+function randomCell() {
+	var box = Math.round(Math.random() *99);
+	return box;
+}
 
 //SET FISH ON BOARD
+function setFish(gameBoard) {
+	// var gameBoard = $('#right').find(".cell");
+	var randomBox = gameBoard[randomCell()];
+	randomBox.innerHTML = "hello";
+}
+
+
+//SELECTING RANDOM NUMBER FOR ROW AND COLUMN
+// var r = Math.round(Math.random() * 10);
+// var c = Math.round(Math.random() * 10);
+//input row and column into position
+// addClass to random cell ("cell r'+ r + ' c' + c+'")
+//$(" '.r' + r + ' .c' + c ").addClass('penguin')
+// var newBox = $('.r' + r + '.c' + c);
+//insert newBox into jquery selector so that it will grab that div and add the class 'fish'
+
+//the penguin is at a random place
+//if div has classof 'fish', reset
+
+
+
+
+
+
 
