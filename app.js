@@ -1,18 +1,11 @@
 console.log("linked.");
 
-
 $(document).ready(function () {
 	//eventlistener on play click, do functions
 	playButton();
 	$('#restart').click(setBoard);
 	//selecting elements use "this" for div elements
 
-});
-
-
-$(document).keydown(function (e) {
-	if (e.keyCode > 36 && e.keyCode < 41)
-	console.log(e.keyCode);
 });
 
 $(document).keydown(function (e) {
@@ -35,7 +28,6 @@ $(document).keydown(function (e) {
 		}
 });
 
-//up 38, down 40
 
 //SET BOARD FUNCTION
 //create board array to iterate through 3
@@ -46,10 +38,11 @@ function setBoard() {
 	for (var i=1; i <= 10; i++) {
 		for (var j=1; j <= 10; j++) {
 		$('#right').append('<div class="cell r'+ i + ' c' + j+'""></div>');
-		// $("<div/>").addClass('r').appendTo('.row2');
 		}
 	}
 	var gameBoard = $('#right').find('.cell');
+	// return gameBoard;
+	findFishPosition(gameBoard);
 	setFish(gameBoard);
 }
 
@@ -86,35 +79,50 @@ function setFish(gameBoard) {
 	randomBox.innerHTML = "<img width='35' height='35' src ='fish.png'>";
 }
 
-//EATFISH FUNCTION
-function eatFish() {
-	var randomBox = gameBoard[randomCell()];
-	//need gameboard
-	var gameBoard = $('#right').find('.cell');
-	//need penguin
-	var penguin = $('.r5.c6');
-	//need penguin start & penguin end
-	var pstart  = gameBoard[45];
-	//need to store penguin in temporary variable
-	var pengHome = pstart;
-	//erase penguin start
-	pstart.innerHTML = "";
-	//need append temporary variable to penguin end 
-	$('#player').append(randomBox);
-}
+// //EATFISH FUNCTION
+// function eatFishNULL() {
+// 	var randomBox = gameBoard[randomCell()];
+// 	//need gameboard
+// 	var gameBoard = $('#right').find('.cell');
+// 	//need penguin
+// 	var penguin = $('.r5.c6');
+// 	//need penguin start & penguin end
+// 	var pstart  = gameBoard[45];
+// 	//need to store penguin in temporary variable
+// 	var pengHome = pstart;
+// 	//erase penguin start
+// 	pstart.innerHTML = "";
+// 	//need append temporary variable to penguin end 
+// 	$('#player').append(randomBox);
+// }
 
 //ALTERNATE EATFISH FUNCTION
+function eatFish() {
 //OBJ: when penguin img hits (or overlaps) fish, clear fish and add point
 //first, find position of the fish
+var fishPosition = randomBox; //how do I get this linked to the random position generated in setFish
+console.log(fishPosotion);
 //set fish position to variable
 //second, find position of penguin
 //set penguin position to variable
+var player= $('#player');
+var playerPosition = player.position();
 //if fish position === penguin position, clear fish 
 
 //look up .position jquery
 
+}
 
-
-
-
-
+function findFishPosition() {
+//if div has content
+var gameBoard = $('#right').find('.cell');
+	for(var i =0; i < gameBoard.length; i++) {
+	if (gameBoard[i].innerHTML === "<img width='35' height='35' src ='fish.png'>") {
+		//grab position
+		var fishPosition = gameBoard[i].position();
+		console.log(gameBoard[i].html());
+		return fishPosition;
+		}
+	}	
+}
+findFishPosition();
