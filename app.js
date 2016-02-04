@@ -42,8 +42,8 @@ function setBoard() {
 	}
 	var gameBoard = $('#right').find('.cell');
 	// return gameBoard;
-	findFishPosition(gameBoard);
 	setFish(gameBoard);
+	findFishPosition();
 }
 
 //SET PLAY BUTTON FUNCTION
@@ -100,29 +100,43 @@ function setFish(gameBoard) {
 function eatFish() {
 //OBJ: when penguin img hits (or overlaps) fish, clear fish and add point
 //first, find position of the fish
-var fishPosition = randomBox; //how do I get this linked to the random position generated in setFish
+//how do I get this linked to the random position generated in setFish
 console.log(fishPosotion);
 //set fish position to variable
 //second, find position of penguin
 //set penguin position to variable
 var player= $('#player');
 var playerPosition = player.position();
-//if fish position === penguin position, clear fish 
+//if fish position === penguin position, clear fish
+//if playertop === fishtop && playerleft === fishleft
+//maybe resest board add point  
 
 //look up .position jquery
 
 }
 
 function findFishPosition() {
-//if div has content
+//go through the gameBoard array
 var gameBoard = $('#right').find('.cell');
 	for(var i =0; i < gameBoard.length; i++) {
-	if (gameBoard[i].innerHTML === "<img width='35' height='35' src ='fish.png'>") {
-		//grab position
-		var fishPosition = gameBoard[i].position();
-		console.log(gameBoard[i].html());
-		return fishPosition;
+//find if any divs have the fish in it
+	if (gameBoard[i].innerHTML !== "") {
+//if so, console log the position of that gameBoard
+		var fishHere = gameBoard[i];
+		console.log(gameBoard[i].attr("class"));
+		// console.log(fishHere.attr('class'));
+		//once you get class
+		//take class put in variable
+		//find position with that variable
+		console.log(fishHere);
+		// console.log(gameBoard[i]);
+		//gameBoard[i] is not recognized as a div
+		//how can I get it to recognize it as div
+		console.log("hi");
 		}
 	}	
 }
-findFishPosition();
+
+
+
+// '<img width="35" height="35" src ="fish.png">'
