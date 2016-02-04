@@ -28,33 +28,28 @@ $(document).keydown(function (e) {
 		}
 });
 
-
 //SET BOARD FUNCTION
-//create board array to iterate through 3
-//add class to element to grab it later on
-//append it to the row
+
 function setBoard() {
 	setTimer();
 	for (var i=1; i <= 10; i++) {
 		for (var j=1; j <= 10; j++) {
-		$('#right').append('<div class="cell r'+ i + ' c' + j+'""></div>');
+		$('#right').append('<div id="'+i+j+'" class="cell r'+ i + ' c' + j+'""></div>');
 		}
 	}
 	var gameBoard = $('#right').find('.cell');
 	// return gameBoard;
 	setFish(gameBoard);
-	findFishPosition();
 }
 
 //SET PLAY BUTTON FUNCTION
-//grab play button and bind it to add event listener (click)
+
 function playButton () {	
 	$('#play').click(setBoard);
 }
-//when clicked initiate set board function
-
 
 //SET TIMER
+
 function setTimer() {
 var count = document.getElementById('countdown');
 timeoutclock = function(){
@@ -67,34 +62,24 @@ timeoutclock = function(){
 setTimeout(timeoutclock, 1000);
 }
 
+//FUNCTION TO GRAB RANDOM CELL
+
 function randomCell() {
 	var box = Math.round(Math.random() *99);
 	return box;
 }
 
 //SET FISH ON BOARD
+
 function setFish(gameBoard) {
 	// var gameBoard = $('#right').find(".cell");
 	var randomBox = gameBoard[randomCell()];
+	//use randomBox to grab div ID & position of fish
+	var newId = randomBox.getAttribute('id');
+	var fishPosition = $('#' + newId).position();
+	console.log(fishPosition);
 	randomBox.innerHTML = "<img width='35' height='35' src ='fish.png'>";
 }
-
-// //EATFISH FUNCTION
-// function eatFishNULL() {
-// 	var randomBox = gameBoard[randomCell()];
-// 	//need gameboard
-// 	var gameBoard = $('#right').find('.cell');
-// 	//need penguin
-// 	var penguin = $('.r5.c6');
-// 	//need penguin start & penguin end
-// 	var pstart  = gameBoard[45];
-// 	//need to store penguin in temporary variable
-// 	var pengHome = pstart;
-// 	//erase penguin start
-// 	pstart.innerHTML = "";
-// 	//need append temporary variable to penguin end 
-// 	$('#player').append(randomBox);
-// }
 
 //ALTERNATE EATFISH FUNCTION
 function eatFish() {
@@ -113,28 +98,6 @@ var playerPosition = player.position();
 
 //look up .position jquery
 
-}
-
-function findFishPosition() {
-//go through the gameBoard array
-var gameBoard = $('#right').find('.cell');
-	for(var i =0; i < gameBoard.length; i++) {
-//find if any divs have the fish in it
-	if (gameBoard[i].innerHTML !== "") {
-//if so, console log the position of that gameBoard
-		var fishHere = gameBoard[i];
-		console.log(gameBoard[i].attr("class"));
-		// console.log(fishHere.attr('class'));
-		//once you get class
-		//take class put in variable
-		//find position with that variable
-		console.log(fishHere);
-		// console.log(gameBoard[i]);
-		//gameBoard[i] is not recognized as a div
-		//how can I get it to recognize it as div
-		console.log("hi");
-		}
-	}	
 }
 
 
