@@ -10,19 +10,32 @@ $(document).ready(function () {
 });
 
 
-// $(document).keydown(function (e) {
-// 	if (e.keyCode > 36 && e.keyCode < 41)
-// 	console.log(e.keyCode);
-// });
+$(document).keydown(function (e) {
+	if (e.keyCode > 36 && e.keyCode < 41)
+	console.log(e.keyCode);
+});
 
-// $(document).keydown(function (e) {
-// 	var player = $("#player");
-// 	if (e.keyCode === 37) {
-// 		player.animate( {
-// 			"left": "-=50px"}, "slow");
-// 		}
-// });
+$(document).keydown(function (e) {
+	var player = $("#player");
+	if (e.keyCode == 37) {
+		player.animate( {
+			"left": "-=50px"}, "slow");
+		}
+	else if (e.keyCode == 39) {
+		player.animate( {
+			"left": "+=50px"}, "slow");
+		}
+	else if (e.keyCode == 38) {
+	player.animate( {
+		"top": "-=50px"}, "slow");
+		}
+	else if (e.keyCode == 40) {
+		player.animate( {
+			"top": "+=50px"}, "slow");
+		}
+});
 
+//up 38, down 40
 
 //SET BOARD FUNCTION
 //create board array to iterate through 3
@@ -36,7 +49,6 @@ function setBoard() {
 		// $("<div/>").addClass('r').appendTo('.row2');
 		}
 	}
-	$('.r5.c6').append("<img src='penguin.png'>");
 	var gameBoard = $('#right').find('.cell');
 	setFish(gameBoard);
 }
@@ -91,14 +103,15 @@ function eatFish() {
 	$('#player').append(randomBox);
 }
 
-//need to get the location of the penguin
-//penguin[p] to penguin[p - 3]
+//ALTERNATE EATFISH FUNCTION
+//OBJ: when penguin img hits (or overlaps) fish, clear fish and add point
+//first, find position of the fish
+//set fish position to variable
+//second, find position of penguin
+//set penguin position to variable
+//if fish position === penguin position, clear fish 
 
-
-//this is for selector function
-//the penguin is at a random place
-//if div has classof 'fish', reset
-
+//look up .position jquery
 
 
 
