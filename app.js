@@ -55,6 +55,7 @@ function setTimer() {
 	       timer = setTimeout(timeoutclock, 1000);
 	       if (count.innerHTML === "0") {
 	       	clearTimeout(timer);
+	       	$('#right').empty();
 	       	alert("TIME OUT!");
 	     }
 	};
@@ -105,7 +106,7 @@ function eatFish() {
 		fishTop=fishPosition.top;
 	if (playerLeft===fishLeft && playerTop===fishTop){
 		newScore+= 1;
-		console.log(newScore);
+		$('#totalScore').html(newScore);
 		console.log("yummy fish");
 		removeFish();
 		setFish(gameBoard);
@@ -120,10 +121,6 @@ function eatFish() {
 	$('.cell').html('');
 //get it's HTML and set it equal to ""
  }
-
-function addPoint() {
-	score
-}
 
 
 

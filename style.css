@@ -130,4 +130,9 @@ h1 {
 	color: blue;
 }
 
+#totalScore {
+	text-align: center;
+	font-size: 2em;
+	color: blue;
+}
 
