@@ -1,3 +1,4 @@
+//THIS IS THE NEW ONE!
 console.log("linked.");
 var score = 0;
 var newScore = 0;
@@ -5,6 +6,7 @@ var newScore = 0;
 
 $(document).ready(function () {
 	var fishPosition;
+	var holePosition;
 		// var playerPosition=$('#player').position();
 	playButton();
 	$('#restart').click(setBoard);
@@ -17,6 +19,7 @@ function findPenguin() {
 		playerPosition = player.position();
 	// console.log(playerPosition);
 	eatFish();
+	deadPeng();
 }
 
 $(document).keydown(function (e) {
@@ -74,7 +77,9 @@ function setBoard() {
 	gameBoard = $('#right').find('.cell');
 	// var randomBox = gameBoard[randomCell()];
 	setFish(gameBoard);
+	setHole(gameBoard);
 	eatFish();
+	deadPeng();
 }
 
 
@@ -97,6 +102,18 @@ function setFish(gameBoard) {
 	randomBox.innerHTML = "<img width='35' height='35' src ='fish.png'>";
 }
 
+//SET HOLE
+
+function setHole(gameBoard) {
+	// var gameBoard = $('#right').find(".cell");
+	var randomBox = gameBoard[randomCell()];
+	//use randomBox to grab div ID & position of fish
+	var newId = randomBox.getAttribute('id');
+	holePosition = $('#' + newId).position();
+	console.log(holePosition);
+	randomBox.innerHTML = "<img width='35' height='35' src ='hole.png'>";
+}
+
 //EAT FISH FUNCTION
 
 function eatFish() {
@@ -110,6 +127,22 @@ function eatFish() {
 		console.log("yummy fish");
 		removeFish();
 		setFish(gameBoard);
+	}
+}
+
+//DEAD PENGUIN FUNCTION
+
+function deadPeng() {
+	var count = document.getElementById('countdown');
+	var playerLeft=playerPosition.left,
+		playerTop=playerPosition.top,
+		holeLeft=holePosition.left,
+		holeTop=holePosition.top;
+	if (playerLeft===holeLeft && playerTop===holeTop){
+		alert("GAME OVER!");
+		clearTimeout(timer);
+		count.innerHTML = 0;
+	    $('#right').empty();
 	}
 }
 
