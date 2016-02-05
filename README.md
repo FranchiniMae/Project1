@@ -2,7 +2,7 @@
 
 ![picture alt](giphy.gif)
 
-###Bit Baloon URL: [BitBalloon](http://hungrypenguin.bitballoon.com)
+###BitBalloon URL: [Hungry Penguin](http://hungrypenguin.bitballoon.com)
 
 ###I. Description: 
 
