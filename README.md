@@ -25,13 +25,13 @@ Larry the Penguin is hungry! Use your arrow keys to help him eat as many fish as
 * Stop the restart button from adding more grids and get it to actually restart the game.
 * CSS challenge -- help center the div elements and make the page responsive.  
 
-####V. Credits 
+####IV. Credits 
 
 * WDI 26 Instructors & DiR
 * WDI 26 for the support and encouragement!
 * WDI TAs
 
-###VI. Sources
+####V. Sources
 
 * MDN
 * JQuery UI
