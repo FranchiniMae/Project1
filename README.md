@@ -1,8 +1,12 @@
 #Hungry Penguin
 
-###Bit Baloon URL: [BitBalloon](link)
+![picture alt](giphy.gif)
 
-###I. Description: Larry the Penguin is hungry! Use your arrow keys to help him eat as many fish as he can before time runs out. Beware the black holes! 
+###Bit Baloon URL: [BitBalloon](http://hungrypenguin.bitballoon.com)
+
+###I. Description: 
+
+Larry the Penguin is hungry! Use your arrow keys to help him eat as many fish as he can before time runs out. Beware the black holes! 
 
 ###II. Technologies Used:
 
