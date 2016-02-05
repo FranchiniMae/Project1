@@ -10,6 +10,11 @@ h1 {
 	color: #FFF;
 }
 
+#main {
+	clear: both;
+	position: center;
+}
+
 /* LEFT SIDE OF WEBSITE */
 
 #info {
@@ -108,17 +113,6 @@ h1 {
 	z-index: 2;
 
 }
-
-/*.fish {
-	border: none;
-	background: url('img src="penguin.png');
-	background-position: center;
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	padding-top: 10px;
-	padding-left: 10px;
-}*/
 
 .cell {
 	width: 50px;

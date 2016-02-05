@@ -1,13 +1,15 @@
 console.log("linked.");
+var score = 0;
+var newScore = 0;
 
 
 $(document).ready(function () {
 	var fishPosition;
-	var score;
-	// var playerPosition=$('#player').position();
+		// var playerPosition=$('#player').position();
 	playButton();
 	$('#restart').click(setBoard);
 });
+var gameBoard;
 
 //FIND PENGUIN POSITION
 function findPenguin() {
@@ -53,6 +55,7 @@ function setTimer() {
 	       timer = setTimeout(timeoutclock, 1000);
 	       if (count.innerHTML === "0") {
 	       	clearTimeout(timer);
+	       	alert("TIME OUT!");
 	     }
 	};
 	setTimeout(timeoutclock, 1000);
@@ -67,10 +70,10 @@ function setBoard() {
 		$('#right').append('<div id="'+i+j+'" class="cell r'+ i + ' c' + j+'""></div>');
 		}
 	}
-	var gameBoard = $('#right').find('.cell');
-	var randomBox = gameBoard[randomCell()];
+	gameBoard = $('#right').find('.cell');
+	// var randomBox = gameBoard[randomCell()];
 	setFish(gameBoard);
-	eatFish(randomBox);
+	eatFish();
 }
 
 
@@ -93,19 +96,19 @@ function setFish(gameBoard) {
 	randomBox.innerHTML = "<img width='35' height='35' src ='fish.png'>";
 }
 
-//ALTERNATE EATFISH FUNCTION
+//EAT FISH FUNCTION
 
 function eatFish() {
 	var playerLeft=playerPosition.left,
 		playerTop=playerPosition.top,
 		fishLeft=fishPosition.left,
 		fishTop=fishPosition.top;
-		score = 0;
 	if (playerLeft===fishLeft && playerTop===fishTop){
-		score++;
+		newScore+= 1;
+		console.log(newScore);
 		console.log("yummy fish");
-		console.log(score);
 		removeFish();
+		setFish(gameBoard);
 	}
 }
 
@@ -113,15 +116,14 @@ function eatFish() {
 
  function removeFish () {
 //grab randomBox variable (because it has the randomBox contents)
-	console.log(randomBox);
-	randomBox.innerHTML = "";
+	var gameBoard = $('#right').find('.cell');
+	$('.cell').html('');
 //get it's HTML and set it equal to ""
  }
 
+function addPoint() {
+	score
+}
 
-
-
-//each time you move key penguin (press key);
-//find position
 
 
