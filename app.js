@@ -53,10 +53,13 @@ function playButton () {
 
 function setTimer() {
 	var count = document.getElementById('countdown');
+	var seconds = 20;
 	timeoutclock = function(){
-	       count.innerHTML = parseInt(count.innerHTML) - 1;
+	       // count.innerHTML = parseInt(count.innerHTML) - 1;
+	       count.innerHTML = seconds + " secs";
+	       seconds --;
 	       timer = setTimeout(timeoutclock, 1000);
-	       if (count.innerHTML === "0") {
+	       if ( seconds === -1) {
 	       	clearTimeout(timer);
 	       	alert("TIME OUT!");
 	       	$('#right').empty();
@@ -127,6 +130,7 @@ function eatFish() {
 		console.log("yummy fish");
 		removeFish();
 		setFish(gameBoard);
+		setHole(gameBoard);
 	}
 }
 
