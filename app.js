@@ -3,20 +3,17 @@ console.log("linked.");
 
 $(document).ready(function () {
 	var fishPosition;
-	var playerPosition=$('#player').position();
-	//eventlistener on play click, do functions
+	var score;
+	// var playerPosition=$('#player').position();
 	playButton();
 	$('#restart').click(setBoard);
-	//selecting elements use "this" for div elements
 });
 
 //FIND PENGUIN POSITION
 function findPenguin() {
 	var player = $('#player');
 		playerPosition = player.position();
-	console.log("chini here:",playerPosition);
-	//eat the fish
-		// check if the penguin coords match the fish
+	// console.log(playerPosition);
 	eatFish();
 }
 
@@ -24,28 +21,27 @@ $(document).keydown(function (e) {
 	var player = $("#player");
 	if (e.keyCode == 37) {
 		player.animate({"left": "-=50px"}, 
-						"slow",findPenguin);
+						"fast",findPenguin);
 		}
 	else if (e.keyCode == 39) {
 		player.animate( {
-			"left": "+=50px"}, "slow",findPenguin);
+			"left": "+=50px"}, "fast",findPenguin);
 		}
 	else if (e.keyCode == 38) {
 	player.animate( {
-		"top": "-=50px"}, "slow",findPenguin);
+		"top": "-=50px"}, "fast",findPenguin);
 		}
 	else if (e.keyCode == 40) {
 		player.animate( {
-			"top": "+=50px"}, "slow",findPenguin);
+			"top": "+=50px"}, "fast",findPenguin);
 		}
-	// findPenguin();
 });
 
 //SET PLAY BUTTON FUNCTION
 
 function playButton () {	
 	$('#play').click(setBoard);
-	// playerPosition=$('#player').position();
+	playerPosition=$('#player').position();
 }
 
 //SET TIMER
@@ -72,9 +68,9 @@ function setBoard() {
 		}
 	}
 	var gameBoard = $('#right').find('.cell');
-	// return gameBoard;
+	var randomBox = gameBoard[randomCell()];
 	setFish(gameBoard);
-	eatFish();
+	eatFish(randomBox);
 }
 
 
@@ -98,28 +94,32 @@ function setFish(gameBoard) {
 }
 
 //ALTERNATE EATFISH FUNCTION
+
 function eatFish() {
 	var playerLeft=playerPosition.left,
 		playerTop=playerPosition.top,
 		fishLeft=fishPosition.left,
 		fishTop=fishPosition.top;
+		score = 0;
 	if (playerLeft===fishLeft && playerTop===fishTop){
+		score++;
 		console.log("yummy fish");
+		console.log(score);
+		removeFish();
 	}
-
-
-//OBJ: when penguin img hits (or overlaps) fish, clear fish and add point
-//first, find position of the fish
-//how do I get this linked to the random position generated in setFish
-//set fish position to variable
-//second, find position of penguin
-//set penguin position to variable
-//if fish position === penguin position, clear fish
-//if playertop === fishtop && playerleft === fishleft
-//maybe resest board add point  
-
-
 }
+
+//REMOVE FISH FUNCTION
+
+ function removeFish () {
+//grab randomBox variable (because it has the randomBox contents)
+	console.log(randomBox);
+	randomBox.innerHTML = "";
+//get it's HTML and set it equal to ""
+ }
+
+
+
 
 //each time you move key penguin (press key);
 //find position
