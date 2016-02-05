@@ -55,8 +55,8 @@ function setTimer() {
 	       timer = setTimeout(timeoutclock, 1000);
 	       if (count.innerHTML === "0") {
 	       	clearTimeout(timer);
-	       	$('#right').empty();
 	       	alert("TIME OUT!");
+	       	$('#right').empty();
 	     }
 	};
 	setTimeout(timeoutclock, 1000);
