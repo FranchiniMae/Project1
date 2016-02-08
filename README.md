@@ -19,10 +19,10 @@ Larry the Penguin is hungry! Use your arrow keys to help him eat as many fish as
 
 ####III. Unsolved Problems:
 
-* Larry has the tendency to run off the ice, help him stay within bounds.
+* Help make the arrow key boundaries consistent. Sometimes Larry the Penguin gets stuck outside and the player is no longer able to move. 
 * Stop the fish and black holes from popping up where the penguin stands.
 * Stop the play button from adding more grids.
-* Stop the restart button from adding more grids and get it to actually restart the game.
+* Help make the restart actually restart the game instead of just refreshing the page. 
 * CSS challenge -- help center the div elements and make the page responsive.  
 
 ####IV. Credits 

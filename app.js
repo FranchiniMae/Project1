@@ -1,52 +1,83 @@
 //THIS IS THE NEW ONE!
 console.log("linked.");
-var score = 0;
-var newScore = 0;
 
 
 $(document).ready(function () {
-	var fishPosition;
-	var holePosition;
-		// var playerPosition=$('#player').position();
 	playButton();
-	$('#restart').click(setBoard);
 });
+
+//GLOBAL VARIABLES
+
 var gameBoard;
+var newScore = 0;
 
 //FIND PENGUIN POSITION
-function findPenguin() {
+
+function findPenguin() { 
+	//on findPenguin, calculate playerPosition
 	var player = $('#player');
 		playerPosition = player.position();
-	// console.log(playerPosition);
+	//once playerPosition has been found, compare with fishPosition & holePosition
+	//if playerPosition equals fishPosition, eatFish
 	eatFish();
+	//if playerPosition equals holePosition, penguin dies
 	deadPeng();
 }
 
+//ARROW KEYS EVENT LISTENERS
+
+
 $(document).keydown(function (e) {
+	//Grab player div to control it with arrow keys
 	var player = $("#player");
+	//if left arrow key is pressed, move 50px
+	//once complete, call findPenguin function
 	if (e.keyCode == 37) {
+		if (playerPosition.left <= 450 && playerPosition.left > 0) {
 		player.animate({"left": "-=50px"}, 
 						"fast",findPenguin);
 		}
+	}	
+	//if right arrow key is pressed, move 50px
 	else if (e.keyCode == 39) {
+		if (playerPosition.left < 450 && playerPosition.left >= 0) {
 		player.animate( {
 			"left": "+=50px"}, "fast",findPenguin);
 		}
+	}
+
+	//if up arrow key is pressed, move 50px
 	else if (e.keyCode == 38) {
-	player.animate( {
-		"top": "-=50px"}, "fast",findPenguin);
+		if (playerPosition.top <= 450 && playerPosition.top > 0) {
+		player.animate( {
+			"top": "-=50px"}, "fast",findPenguin);
 		}
+	}
+
+	//if down arreky is pressed, move 50px
 	else if (e.keyCode == 40) {
+		if (playerPosition.top < 450 && playerPosition.top >= 0) {
 		player.animate( {
 			"top": "+=50px"}, "fast",findPenguin);
 		}
+	}
 });
+
+//PREVENT PAGE SCROLL WHEN PLAYING
+
+$(document).keydown(function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 //SET PLAY BUTTON FUNCTION
 
-function playButton () {	
+function playButton () {
+	//when playButton is pressed, setBoard	
 	$('#play').click(setBoard);
-	playerPosition=$('#player').position();
+	playerPosition=$('#player').position();	
 }
 
 //SET TIMER
@@ -55,7 +86,6 @@ function setTimer() {
 	var count = document.getElementById('countdown');
 	var seconds = 20;
 	timeoutclock = function(){
-	       // count.innerHTML = parseInt(count.innerHTML) - 1;
 	       count.innerHTML = seconds + " secs";
 	       seconds --;
 	       timer = setTimeout(timeoutclock, 1000);
@@ -78,7 +108,6 @@ function setBoard() {
 		}
 	}
 	gameBoard = $('#right').find('.cell');
-	// var randomBox = gameBoard[randomCell()];
 	setFish(gameBoard);
 	setHole(gameBoard);
 	eatFish();
@@ -96,9 +125,7 @@ function randomCell() {
 //SET FISH ON BOARD
 
 function setFish(gameBoard) {
-	// var gameBoard = $('#right').find(".cell");
 	var randomBox = gameBoard[randomCell()];
-	//use randomBox to grab div ID & position of fish
 	var newId = randomBox.getAttribute('id');
 	fishPosition = $('#' + newId).position();
 	console.log(fishPosition);
@@ -108,9 +135,7 @@ function setFish(gameBoard) {
 //SET HOLE
 
 function setHole(gameBoard) {
-	// var gameBoard = $('#right').find(".cell");
 	var randomBox = gameBoard[randomCell()];
-	//use randomBox to grab div ID & position of fish
 	var newId = randomBox.getAttribute('id');
 	holePosition = $('#' + newId).position();
 	console.log(holePosition);
@@ -127,7 +152,6 @@ function eatFish() {
 	if (playerLeft===fishLeft && playerTop===fishTop){
 		newScore+= 1;
 		$('#totalScore').html(newScore);
-		console.log("yummy fish");
 		removeFish();
 		setFish(gameBoard);
 		setHole(gameBoard);
@@ -137,7 +161,6 @@ function eatFish() {
 //DEAD PENGUIN FUNCTION
 
 function deadPeng() {
-	var count = document.getElementById('countdown');
 	var playerLeft=playerPosition.left,
 		playerTop=playerPosition.top,
 		holeLeft=holePosition.left,
@@ -158,6 +181,10 @@ function deadPeng() {
 	$('.cell').html('');
 //get it's HTML and set it equal to ""
  }
+
+ //PLAYNOW BUTTON AT FRONT
+
+
 
 
 
