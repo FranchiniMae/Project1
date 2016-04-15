@@ -1,6 +1,6 @@
 #Hungry Penguin
 
-![picture alt](giphy.gif)
+![picture alt](images/giphy.gif)
 
 ###BitBalloon URL: [Hungry Penguin](http://hungrypenguin.bitballoon.com)
 #####Project 1 Trello Board: [Trello](https://trello.com/b/5a3xKFXq/wdi-project-1)
