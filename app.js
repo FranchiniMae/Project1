@@ -1,6 +1,4 @@
-//THIS IS THE NEW ONE!
 console.log("linked.");
-
 
 $(document).ready(function () {
 	playButton();
@@ -11,14 +9,14 @@ $(document).ready(function () {
 var gameBoard;
 var newScore = 0;
 
-//FIND PENGUIN POSITION
+// FIND PENGUIN POSITION
 
 function findPenguin() { 
-	//on findPenguin, calculate playerPosition
+	// on findPenguin, calculate playerPosition
 	var player = $('#player');
 		playerPosition = player.position();
-	//once playerPosition has been found, compare with fishPosition & holePosition
-	//if playerPosition equals fishPosition, eatFish
+	// once playerPosition has been found, compare with fishPosition & holePosition
+	// if playerPosition equals fishPosition, eatFish
 	eatFish();
 	//if playerPosition equals holePosition, penguin dies
 	deadPeng();
@@ -26,8 +24,7 @@ function findPenguin() {
 
 //ARROW KEYS EVENT LISTENERS
 
-
-$(document).keydown(function (e) {
+$(document).on("keydown",function (e) {
 	//Grab player div to control it with arrow keys
 	var player = $("#player");
 	//if left arrow key is pressed, move 50px
@@ -179,10 +176,8 @@ function deadPeng() {
 //grab randomBox variable (because it has the randomBox contents)
 	var gameBoard = $('#right').find('.cell');
 	$('.cell').html('');
-//get it's HTML and set it equal to ""
- }
+}
 
- //PLAYNOW BUTTON AT FRONT
 
 
 
