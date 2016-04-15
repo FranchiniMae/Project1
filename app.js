@@ -126,7 +126,7 @@ function setFish(gameBoard) {
 	var newId = randomBox.getAttribute('id');
 	fishPosition = $('#' + newId).position();
 	console.log(fishPosition);
-	randomBox.innerHTML = "<img width='35' height='35' src ='fish.png'>";
+	randomBox.innerHTML = "<img width='35' height='35' src ='images/fish.png'>";
 }
 
 //SET HOLE
