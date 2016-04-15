@@ -14,8 +14,8 @@ var newScore = 0;
 function findPenguin() { 
 	// on findPenguin, calculate playerPosition
 	var player = $('#player');
-		playerPosition = player.position();
 	// once playerPosition has been found, compare with fishPosition & holePosition
+	playerPosition = player.position();
 	// if playerPosition equals fishPosition, eatFish
 	eatFish();
 	//if playerPosition equals holePosition, penguin dies
@@ -175,7 +175,6 @@ function deadPeng() {
 // REMOVE FISH FUNCTION
 
 function removeFish () {
-// grab randomBox variable (because it has the randomBox contents)
 	var gameBoard = $('#right').find('.cell');
 	$('.cell').html('');
 }
