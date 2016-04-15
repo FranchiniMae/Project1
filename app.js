@@ -69,13 +69,14 @@ $(document).keydown(function(e) {
     }
 }, false);
 
-//SET PLAY BUTTON FUNCTION
+// SET PLAY BUTTON FUNCTION
 
-function playButton () {
-	//when playButton is pressed, setBoard	
+function playButton() {
+	// when playButton is pressed, setBoard	
 	$('#play').click(setBoard);
 	playerPosition=$('#player').position();	
 }
+
 
 //SET TIMER
 
@@ -152,6 +153,9 @@ function eatFish() {
 		removeFish();
 		setFish(gameBoard);
 		setHole(gameBoard);
+	}
+		if (newScore >= 1) {
+		$('#play').hide();
 	}
 }
 
