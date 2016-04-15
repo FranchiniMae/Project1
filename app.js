@@ -25,10 +25,10 @@ function findPenguin() {
 //ARROW KEYS EVENT LISTENERS
 
 $(document).on("keydown",function (e) {
-	//Grab player div to control it with arrow keys
+	// Grab player div to control it with arrow keys
 	var player = $("#player");
-	//if left arrow key is pressed, move 50px
-	//once complete, call findPenguin function
+	// if left arrow key is pressed, move 50px
+	// once complete, call findPenguin function
 	if (e.keyCode == 37) {
 		if (playerPosition.left <= 450 && playerPosition.left > 0) {
 		player.animate({"left": "-=50px"}, 
@@ -154,9 +154,7 @@ function eatFish() {
 		setFish(gameBoard);
 		setHole(gameBoard);
 	}
-		if (newScore >= 1) {
-		$('#play').hide();
-	}
+	$('#play').hide();
 }
 
 //DEAD PENGUIN FUNCTION
@@ -167,23 +165,23 @@ function deadPeng() {
 		holeLeft=holePosition.left,
 		holeTop=holePosition.top;
 	if (playerLeft===holeLeft && playerTop===holeTop){
-		alert("GAME OVER!");
 		clearTimeout(timer);
+		alert("GAME OVER!");
 		count.innerHTML = 0;
 	    $('#right').empty();
 	}
 }
 
-//REMOVE FISH FUNCTION
+// REMOVE FISH FUNCTION
 
- function removeFish () {
-//grab randomBox variable (because it has the randomBox contents)
+function removeFish () {
+// grab randomBox variable (because it has the randomBox contents)
 	var gameBoard = $('#right').find('.cell');
 	$('.cell').html('');
 }
 
+// RESTART 
 
-
-
-
-
+function restartButton() {
+	location.href='index.html';
+}
